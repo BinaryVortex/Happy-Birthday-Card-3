@@ -58,7 +58,7 @@ Any current version of Chrome, Edge, Safari or Firefox.
 
 ```
 .
-├── shenu-birthday-card.html   # the whole card (HTML + CSS + JS)
+├── index.html   # the whole card (HTML + CSS + JS)
 └── README.md
 ```
 
