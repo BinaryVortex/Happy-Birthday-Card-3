@@ -1,3 +1,7 @@
+<div align="center">
+<img src="logo.png" alt="FUTURA Logo" width="1000"/>
+</div>
+
 # Shenu's Birthday Card 🎂
 
 A single-file interactive birthday card built with plain HTML, CSS and a little vanilla JavaScript. No build step, no dependencies, no framework.
