@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Shenu!</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@500;700&display=swap">
+<style>
+:root{
+  --bg1:#ffe3ef; --bg2:#dcd4ff; --ink:#241a5a; --hint:#5a4c9a;
+  --pink:#ff4f8b; --sun:#ffc933; --mint:#2fcf94; --paper:#fffaf7; --flame:#ff8a1f;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg1:#2a1c66; --bg2:#120c33; --hint:#cbc2ff; }
+}
+:root[data-theme="dark"]{ --bg1:#2a1c66; --bg2:#120c33; --hint:#cbc2ff; }
+html{ height:100%; scroll-padding-top:env(safe-area-inset-top,0px); }
+*,*::before,*::after{ box-sizing:border-box; }
+body{
+  margin:0; min-height:100%; display:grid; place-items:center; gap:18px; align-content:center;
+  background:radial-gradient(circle at 30% 20%, var(--bg1), var(--bg2) 75%) var(--bg2);
+  font-family:"Nunito", system-ui, sans-serif; color:var(--ink); padding:20px;
+}
+.stage{ perspective:1400px; }
+.card{ position:relative; width:min(86vw,340px); height:min(540px,80svh); }
+.inside, .cover{ position:absolute; inset:0; border-radius:14px; }
+.inside{
+  background:var(--paper); box-shadow:0 18px 40px rgba(20,10,60,.35);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; padding:24px 26px; text-align:center; overflow:auto;
+}
+.inside h2{ font-family:"Bagel Fat One", "Arial Rounded MT Bold", system-ui, sans-serif; font-weight:400; font-size:1.9rem; line-height:1.1; margin:0; color:var(--pink); }
+.inside p{ margin:0; font-size:1.02rem; line-height:1.55; max-width:30ch; font-weight:500; }
+.sign{ font-weight:700; color:var(--hint); }
+.cake{ width:150px; height:auto; flex:none; }
+.flame{ transform-origin:100px 52px; animation:flick .5s ease-in-out infinite alternate; transition:opacity .25s, transform .25s; }
+.out .flame{ opacity:0; animation:none; transform:scale(.3); }
+.smoke{ opacity:0; transition:opacity .3s; }
+.out .smoke{ opacity:.55; }
+@keyframes flick{ from{ transform:scale(1,1) rotate(-3deg);} to{ transform:scale(.92,1.08) rotate(3deg);} }
+button{
+  font:inherit; font-weight:700; border:0; cursor:pointer; border-radius:999px;
+  padding:12px 22px; background:var(--pink); color:#fff; box-shadow:0 4px 0 #c42d63;
+  transition:transform .12s, box-shadow .12s;
+}
+button:active{ transform:translateY(3px); box-shadow:0 1px 0 #c42d63; }
+button:focus-visible{ outline:3px solid var(--sun); outline-offset:3px; }
+.cover{
+  background:var(--pink); color:#fff; transform-origin:left center;
+  transition:transform 1s cubic-bezier(.6,.05,.25,1); backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:30px 24px; text-align:center; z-index:2;
+  background-image:radial-gradient(rgba(255,255,255,.22) 2px, transparent 2.5px); background-size:22px 22px;
+  box-shadow:0 18px 40px rgba(20,10,60,.35);
+}
+.cover h1{ font-family:"Bagel Fat One", "Arial Rounded MT Bold", system-ui, sans-serif; font-weight:400; margin:0; font-size:2.5rem; line-height:1.05; }
+.cover h1 span{ display:block; font-size:4.2rem; color:var(--sun); text-shadow:0 4px 0 #c42d63; }
+.balloons{ width:180px; height:auto; }
+.cover button{ background:var(--sun); color:var(--ink); box-shadow:0 4px 0 #c99200; }
+.open .cover{ transform:rotateY(-178deg); pointer-events:none; }
+.open .cover button{ visibility:hidden; }
+.hint{ color:var(--hint); font-size:.9rem; margin:0; }
+canvas{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:10; }
+@media (prefers-reduced-motion: reduce){
+  .cover{ transition:none; } .flame{ animation:none; }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="card" id="card">
+    <section class="inside" aria-label="Inside the card">
+      <svg class="cake" id="cake" viewBox="0 0 200 170" role="img" aria-label="Birthday cake with one candle">
+        <ellipse cx="100" cy="155" rx="88" ry="10" fill="#241a5a" opacity=".18"/>
+        <rect x="30" y="105" width="140" height="46" rx="10" fill="#ff4f8b"/>
+        <rect x="52" y="68" width="96" height="42" rx="9" fill="#ffc933"/>
+        <path d="M30 112 q10 14 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 v-8 h-140z" fill="#fffaf7"/>
+        <path d="M52 75 q8 12 16 0 t16 0 t16 0 t16 0 t16 0 v-7 h-96z" fill="#fffaf7"/>
+        <circle cx="62" cy="132" r="4" fill="#2fcf94"/><circle cx="100" cy="136" r="4" fill="#2fcf94"/><circle cx="138" cy="132" r="4" fill="#2fcf94"/>
+        <rect x="95" y="46" width="10" height="24" rx="3" fill="#2fcf94"/>
+        <g class="flame"><path d="M100 24 C110 36 108 48 100 50 C92 48 90 36 100 24z" fill="#ff8a1f"/><path d="M100 34 C105 41 104 47 100 48 C96 47 95 41 100 34z" fill="#ffe27a"/></g>
+        <path class="smoke" d="M100 40 q-6 -8 0 -14 q6 -6 0 -12" fill="none" stroke="#241a5a" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <h2>Make a wish, Shenu</h2>
+      <p>Thanks for being the kind of friend who makes every plan better. Hope this year brings everything you’re wishing for, and a lot of cake.</p>
+      <button id="blow" type="button">Blow out the candle</button>
+      <p class="sign">From Disandu</p>
+    </section>
+    <section class="cover" aria-label="Card cover">
+      <svg class="balloons" viewBox="0 0 180 150" aria-hidden="true">
+        <g stroke="#fffaf7" stroke-width="2" fill="none" opacity=".85"><path d="M50 62 Q70 110 90 150"/><path d="M90 52 L90 150"/><path d="M132 66 Q112 110 90 150"/></g>
+        <ellipse cx="50" cy="40" rx="26" ry="31" fill="#ffc933"/><ellipse cx="90" cy="30" rx="26" ry="31" fill="#2fcf94"/><ellipse cx="132" cy="44" rx="26" ry="31" fill="#fffaf7"/>
+        <ellipse cx="42" cy="30" rx="6" ry="9" fill="#fff" opacity=".5"/><ellipse cx="82" cy="20" rx="6" ry="9" fill="#fff" opacity=".5"/><ellipse cx="124" cy="34" rx="6" ry="9" fill="#fff" opacity=".7"/>
+      </svg>
+      <h1>Happy Birthday<span>Shenu!</span></h1>
+      <button id="open" type="button">Open your card</button>
+    </section>
+  </div>
+</div>
+<p class="hint" id="hint">Tap the card to open it</p>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+(function(){
+  var card = document.getElementById('card'), open = document.getElementById('open'),
+      blow = document.getElementById('blow'), cake = document.getElementById('cake'),
+      hint = document.getElementById('hint'), cv = document.getElementById('confetti'),
+      ctx = cv.getContext('2d'), parts = [], running = false,
+      calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      colors = ['#ff4f8b','#ffc933','#2fcf94','#7a5cff','#ff8a1f','#ffffff'];
+
+  function size(){ cv.width = innerWidth; cv.height = innerHeight; }
+  size(); addEventListener('resize', size);
+
+  function burst(n){
+    if (calm) return;
+    for (var i = 0; i < n; i++){
+      var a = Math.random() * Math.PI * 2, s = 5 + Math.random() * 9;
+      parts.push({ x: innerWidth/2, y: innerHeight*0.55, vx: Math.cos(a)*s, vy: Math.sin(a)*s - 6,
+        w: 6 + Math.random()*6, h: 4 + Math.random()*5, r: Math.random()*6, vr: (Math.random()-.5)*.4,
+        c: colors[(Math.random()*colors.length)|0], life: 140 + Math.random()*60 });
+    }
+    if (!running){ running = true; requestAnimationFrame(tick); }
+  }
+  function tick(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    parts = parts.filter(function(p){ return p.life > 0 && p.y < cv.height + 20; });
+    parts.forEach(function(p){
+      p.vy += .25; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.life--;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c;
+      ctx.globalAlpha = Math.min(1, p.life / 40); ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h); ctx.restore();
+    });
+    if (parts.length) requestAnimationFrame(tick); else { running = false; ctx.clearRect(0, 0, cv.width, cv.height); }
+  }
+
+  function openCard(){
+    if (card.classList.contains('open')) return;
+    card.classList.add('open'); hint.textContent = 'Make a wish, then blow out the candle';
+    setTimeout(function(){ burst(70); }, 500);
+  }
+  open.addEventListener('click', function(e){ e.stopPropagation(); openCard(); });
+  card.addEventListener('click', openCard);
+
+  blow.addEventListener('click', function(){
+    var out = cake.classList.toggle('out');
+    blow.textContent = out ? 'Light it again' : 'Blow out the candle';
+    if (out){ burst(140); hint.textContent = 'Wish made. Happy birthday!'; }
+  });
+  document.querySelector('.inside').addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
+</body>
+</html>
